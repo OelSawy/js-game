@@ -32,9 +32,31 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-var result = playRound("rock",getComputerChoice())
-while (result == "tie") {
-    result = playRound("rock",getComputerChoice())
+function game() {
+    let playerScore = 0
+    let computerScore = 0
+    while (playerScore < 3 && computerScore < 3) {
+        let playerSelection = prompt("Enter your choice :")
+        while (!(["rock", "paper", "scissors"]).includes(playerSelection)) {
+            playerSelection = prompt("Enter a valid choice :")
+        }
+        let computerSelection = getComputerChoice()
+        let result = playRound(playerSelection, computerSelection)
+        if (result == "win") {
+            console.log(`You won this round, computer chose ${computerSelection}`)
+            playerScore++
+            console.log(`current score : ${playerScore} : ${computerScore}`)
+        } else if (result == "lose") {
+            console.log(`You lost this round, computer chose ${computerSelection}`)
+            computerScore++
+            console.log(`current score : ${playerScore} : ${computerScore}`)
+        } else {
+            console.log("This round is a tie, no points awarded")
+            console.log(`current score : ${playerScore} : ${computerScore}`)
+        }
+    }
+
+    return playerScore > computerScore ? `You won the game, score : ${playerScore}` : `You lost the game, score : ${computerScore}`
 }
 
-console.log(result)
+console.log(game())
