@@ -1,14 +1,37 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Javascript Game</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="css/styles.css">
-    </head>
-    <body>
-        <script src="js/script.js" async defer></script>
-    </body>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Javascript Game</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div class="body">
+        <h1>Rock Paper Scissors !</h1>
+        <div class="players">
+            <div style="color: blue;">Player</div>
+            :
+            <div style="color: red;">Comp</div>
+        </div>
+        <div class="score-board">
+            <div class="playerScore" style="color: blue;">0</div>
+            :
+            <div class="computerScore" style="color: red;">0</div>
+        </div>
+        <div class="buttons">
+            <button id="rockButton">Rock</button>
+            <button id="paperButton">Paper</button>
+            <button id="scissorsButton">Scissors</button>
+        </div>
+        <div class="result" style="height: 75px;"></div>
+    </div>
+
+    <script src="js/script.js" defer></script>
+</body>
+
 </html>
