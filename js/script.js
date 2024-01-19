@@ -32,31 +32,58 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-function game() {
-    let playerScore = 0
-    let computerScore = 0
-    while (playerScore < 3 && computerScore < 3) {
-        let playerSelection = prompt("Enter your choice :")
-        while (!(["rock", "paper", "scissors"]).includes(playerSelection)) {
-            playerSelection = prompt("Enter a valid choice :")
-        }
+var rockButton = document.querySelector('#rockButton');
+var paperButton = document.querySelector('#paperButton');
+var scissorsButton = document.querySelector('#scissorsButton');
+
+const pScore = document.querySelector('.playerScore');
+const cScore = document.querySelector('.computerScore');
+var playerScore = parseInt(pScore.textContent);
+var computerScore = parseInt(cScore.textContent);
+
+const res = document.querySelector('.result');
+
+function game(playerSelection) {
+    if (playerScore < 5 && computerScore < 5) {
         let computerSelection = getComputerChoice()
         let result = playRound(playerSelection, computerSelection)
         if (result == "win") {
-            console.log(`You won this round, computer chose ${computerSelection}`)
-            playerScore++
-            console.log(`current score : ${playerScore} : ${computerScore}`)
+            res.textContent = `You won this round, computer chose ${computerSelection}`;
+            playerScore++;
+            pScore.textContent = playerScore;
+            setTimeout(() => {
+                if (playerScore == 5 || computerScore == 5) {
+                    playerScore > computerScore ?
+                        res.textContent = "You won the game!" :
+                        res.textContent = "You lost the game!";
+                }
+            }, 3000);
         } else if (result == "lose") {
-            console.log(`You lost this round, computer chose ${computerSelection}`)
+            res.textContent = `You lost this round, computer chose ${computerSelection}`;
             computerScore++
-            console.log(`current score : ${playerScore} : ${computerScore}`)
+            cScore.textContent = computerScore
+            setTimeout(() => {
+                if (playerScore == 5 || computerScore == 5) {
+                    playerScore > computerScore ?
+                        res.textContent = "You won the game!" :
+                        res.textContent = "You lost the game!";
+                }
+            }, 3000);
         } else {
-            console.log("This round is a tie, no points awarded")
+            res.textContent = "This round is a tie, no points awarded";
             console.log(`current score : ${playerScore} : ${computerScore}`)
         }
     }
-
-    return playerScore > computerScore ? `You won the game, score : ${playerScore}` : `You lost the game, score : ${computerScore}`
 }
 
-console.log(game())
+rockButton.addEventListener('click', () => {
+    game("rock");
+});
+
+paperButton.addEventListener('click', () => {
+    game("paper");
+})
+
+scissorsButton.addEventListener('click', () => {
+    game("scissors");
+});
