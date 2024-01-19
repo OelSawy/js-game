@@ -1,0 +1,44 @@
+.body {
+    background-color: #000;
+    color: #fff;
+    font-family: sans-serif;
+    font-size: 1.5em;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.players {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    font-size: 40px;
+}
+
+.score-board {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    font-size: 40px;
+}
+
+button {
+    background-color: #fff;
+    border: none;
+    border-radius: 5px;
+    color: #000;
+    cursor: pointer;
+    font-size: 1.5em;
+    padding: 10px 20px;
+}
+
+.buttons {
+    margin-top: 100px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.result {
+    margin-top: 50px;
+    font-size: 2em;
+}
